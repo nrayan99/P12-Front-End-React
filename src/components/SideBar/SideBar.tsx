@@ -6,12 +6,15 @@ import bodybuildingIcon from "../../assets/icons/SideBarIcons/bodybuilding-icon.
 import swimmingIcon from "../../assets/icons/SideBarIcons/swimming-icon.svg";
 
 function SideBar() {
-  const icons = useMemo(() => [
-    { icon: yogaIcon, link: "/yoga", alt: "yoga" },
-    { icon: bikeIcon, link: "/bike", alt: "bike" },
-    { icon: bodybuildingIcon, link: "/bodybuilding", alt: "bodybuilding" },
-    { icon: swimmingIcon, link: "/swimming", alt: "swimming" },
-  ]);
+  const icons = useMemo(
+    () => [
+      { icon: yogaIcon, link: "/yoga", alt: "yoga" },
+      { icon: bikeIcon, link: "/bike", alt: "bike" },
+      { icon: bodybuildingIcon, link: "/bodybuilding", alt: "bodybuilding" },
+      { icon: swimmingIcon, link: "/swimming", alt: "swimming" },
+    ],
+    []
+  );
 
   return (
     <div className={style.SideBar}>
