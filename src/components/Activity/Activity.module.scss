@@ -2,52 +2,28 @@
   width: 700px;
   height: auto;
   background-color: #fbfbfb;
-}
-.customizedLegend {
-  display: flex;
-  list-style: none; /* Remove default bullets */
-  gap: 50px;
-  li {
-    display: flex;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 24px;
-    color: #74798c;
-  }
-  li:first-child::before {
-    content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    color: #282d30; /* Change the color */
-    font-weight: bold; /* If you want it to be bold */
-    display: inline-block; /* Needed to add space between the bullet and the text */
-    width: 0.5em; /* Also needed for space (tweak if needed) */
-    margin-left: -1em; /* Also needed for space (tweak if needed) */
-    font-size: 2em;
-  }
-  li:nth-child(2)::before {
-    content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    color: #e60000; /* Change the color */
-    font-weight: bold; /* If you want it to be bold */
-    display: inline-block; /* Needed to add space between the bullet and the text */
-    width: 0.5em; /* Also needed for space (tweak if needed) */
-    margin-left: -1em; /* Also needed for space (tweak if needed) */
-    font-size: 2em;
-  }
-}
-
-.header {
-  display: flex;
-  width: 100%;
-  padding: 24px 26px 0px 32px;
-
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
+  padding-top: 24px;
+  padding-left: 32px;
   > h2 {
     font-size: 15px;
     font-weight: 500;
     line-height: 24px;
     color: #20253a;
+    position: absolute;
   }
 }
+.customizedLegend {
+  font-size: 14px;
+  > svg {
+    margin-right: 12px;
+  }
+  font-weight: 500;
+  line-height: 24px;
+  color: #74798c;
+}
+
+
 
 .customTooltip {
   background-color: #e60000;

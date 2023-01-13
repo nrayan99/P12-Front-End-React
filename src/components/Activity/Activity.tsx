@@ -9,6 +9,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Legend,
 } from "recharts";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
@@ -24,17 +25,19 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   return null;
 };
 
+const formatterLegend = (value: string, entry: any, index: any) => {
+  return (
+    <span className={style.customizedLegend} style={{ color: "#74798C" }}>
+      {index === 0 ? "Poids (kg)" : "Calories brûlées (kCal)"}
+    </span>
+  );
+};
+
 function Activity({ activities }: { activities: any }) {
   console.log(activities);
   return (
     <div className={style.Activity}>
-      <div className={style.header}>
-        <h2>Activité quotidienne</h2>
-        <ul className={style.customizedLegend}>
-          <li>Poids (kg)</li>
-          <li>Calories brûlées (kCal)</li>
-        </ul>
-      </div>
+      <h2>Activité quotidienne</h2>
       <ResponsiveContainer width="100%" height={220}>
         <BarChart
           width={700}
@@ -48,6 +51,7 @@ function Activity({ activities }: { activities: any }) {
             left: 0,
             bottom: 0,
           }}
+          title="Activité quotidienne"
         >
           <CartesianGrid
             strokeDasharray="2 2"
@@ -79,6 +83,14 @@ function Activity({ activities }: { activities: any }) {
           <Tooltip
             content={<CustomTooltip />}
             wrapperStyle={{ outline: "none" }}
+          />
+          <Legend
+            verticalAlign="top"
+            align="right"
+            wrapperStyle={{ top: 0, right: 26 }}
+            formatter={formatterLegend}
+            iconType="circle"
+            iconSize={8}
           />
           <Bar
             yAxisId="right"
