@@ -1,7 +1,11 @@
+import { RadarChart } from "recharts";
 import Activity from "./components/Activity/Activity";
 import Header from "./components/Header/Header";
+import KeyData from "./components/KeyData/KeyData";
+import RadarCharts from "./components/RadarChart/RadarCharts";
 import SideBar from "./components/SideBar/SideBar";
 import style from "./Layout.module.scss";
+import proteinIcon from "./assets/icons/KeyDatas/protein.svg";
 
 /**
  * @description
@@ -61,6 +65,8 @@ function Layout() {
       calories: 390,
     },
   ];
+
+  
   return (
     <>
       <Header />
@@ -70,6 +76,8 @@ function Layout() {
         </h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         <Activity activities={activities} />
+        <RadarCharts id={18} />
+        <KeyData icon={proteinIcon} value='155g' type='Proteines' backgroundColor='rgba(74, 184, 255, 0.1)'/>
       </div>
       <SideBar />
     </>

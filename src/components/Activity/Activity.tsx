@@ -40,7 +40,7 @@ function Activity({ activities }: { activities: any }) {
       <h2>Activité quotidienne</h2>
       <ResponsiveContainer width="100%" height={220}>
         <BarChart
-          width={700}
+          width={835}
           height={300}
           data={activities.map((activity: any, index: number) => {
             return { ...activity, day: index + 1 };
