@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import style from "./RadarCharts.module.scss";
 import {
   Radar,
@@ -21,12 +21,17 @@ type dataCharts = {
 function RadarCharts({ id }: Props) {
   const [dataUser, setDataUser] = useState<dataCharts[]>([]);
 
+  const kind = useMemo(
+    () => ["Cardio", "Energie", "Endurance", "Force", "Vitesse", "Intensité"],
+    []
+  );
+
   useEffect(() => {
     async function call() {
       const data = await getUserPerformanceById(id);
-      const dataUser = data.data.data.map((element, index) => {
+      const dataUser = data.data.map((element, index) => {
         return {
-          subject: data.data.kind[index + 1],
+          subject: kind[index],
           A: element.value,
           fullMark: 150,
         };
@@ -34,7 +39,7 @@ function RadarCharts({ id }: Props) {
       setDataUser(dataUser);
     }
     call();
-  }, [id]);
+  }, [id, kind]);
 
   return (
     <div className={style.RadarCharts}>
@@ -47,8 +52,22 @@ function RadarCharts({ id }: Props) {
           outerRadius="80%"
           data={dataUser}
         >
-          <PolarGrid />
-          <PolarAngleAxis dataKey="subject" tick={{ fill: "#FFFFFF" }} />
+          <PolarGrid
+            gridType="polygon"
+            radialLines={false}
+            fill="white"
+            fillOpacity={1}
+          />
+          <PolarAngleAxis
+            dataKey="subject"
+            tick={{
+              fill: "#FFFFFF",
+              fontFamily: "Roboto",
+              fontSize: "12px",
+              fontWeight: "500",
+            }}
+            tickLine={false}
+          />
           <Radar
             name="Mike"
             dataKey="A"

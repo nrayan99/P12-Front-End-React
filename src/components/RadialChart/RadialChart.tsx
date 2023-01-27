@@ -21,7 +21,7 @@ function RadialChart({ id }: Props) {
     async function call() {
       const data = await getUserById(id);
       console.log(data);
-      const score = data.data.score || data.data.todayScore || 0;
+      const score = data.score || data.todayScore || 0;
       setScore(score);
       setDataUser([
         { id: "1", name: "L1", value: 100 - score * 100 },

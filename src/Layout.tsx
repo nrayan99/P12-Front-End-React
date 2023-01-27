@@ -14,6 +14,9 @@ import RadialChart from "./components/RadialChart/RadialChart";
  * @returns {JSX.Element}
  */
 function Layout() {
+  const queryParameters = new URLSearchParams(window.location.search);
+  const id = Number(queryParameters.get("id"));
+
   const activities = [
     {
       day: "2020-07-01",
@@ -67,7 +70,6 @@ function Layout() {
     },
   ];
 
-  
   return (
     <>
       <Header />
@@ -77,9 +79,9 @@ function Layout() {
         </h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         <Activity activities={activities} />
-        <RadarCharts id={18} />
+        <RadarCharts id={id} />
+        <RadialChart id={id} />
         {/* <KeyData icon={proteinIcon} value='155g' type='Proteines' backgroundColor='rgba(74, 184, 255, 0.1)'/> */}
-        <RadialChart id={12} />
       </div>
       <SideBar />
     </>
