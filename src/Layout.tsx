@@ -6,6 +6,7 @@ import RadarCharts from "./components/RadarChart/RadarCharts";
 import SideBar from "./components/SideBar/SideBar";
 import style from "./Layout.module.scss";
 import proteinIcon from "./assets/icons/KeyDatas/protein.svg";
+import RadialChart from "./components/RadialChart/RadialChart";
 
 /**
  * @description
@@ -77,7 +78,8 @@ function Layout() {
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         <Activity activities={activities} />
         <RadarCharts id={18} />
-        <KeyData icon={proteinIcon} value='155g' type='Proteines' backgroundColor='rgba(74, 184, 255, 0.1)'/>
+        {/* <KeyData icon={proteinIcon} value='155g' type='Proteines' backgroundColor='rgba(74, 184, 255, 0.1)'/> */}
+        <RadialChart id={12} />
       </div>
       <SideBar />
     </>
