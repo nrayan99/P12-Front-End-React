@@ -47,9 +47,9 @@ function RadarCharts({ id }: Props) {
         <RadarChart
           cx="50%"
           cy="50%"
-          width={258}
-          height={253}
-          outerRadius="80%"
+          width={180}
+          height={180}
+          outerRadius="60%"
           data={dataUser}
         >
           <PolarGrid
