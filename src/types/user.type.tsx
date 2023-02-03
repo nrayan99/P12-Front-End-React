@@ -40,3 +40,15 @@ export type userPerformance = {
     kind: number;
   }>;
 };
+
+export type formattedActivity = {
+  day: string;
+  kilogram: number;
+  calories: number;
+};
+
+export type formattedPerformance = {
+  subject: string;
+  A: number;
+  fullMark: number;
+};
