@@ -57,6 +57,7 @@ function RadialChart({ user }: Props) {
             outerRadius="70%"
             cx="50%"
             cy="60%"
+            isAnimationActive={false}
           ></Pie>
         </PieChart>
       </ResponsiveContainer>

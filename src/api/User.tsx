@@ -12,6 +12,7 @@ import {
   mockGetUserActivityById,
   mockGetUserPerformanceById,
 } from "../__mocks__/User";
+
 export async function getUserById(id: number): Promise<user> {
   try {
     console.log(env.ENVIRONMENT);

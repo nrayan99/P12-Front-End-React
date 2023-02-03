@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useMemo } from "react";
-import style from "./RadarCharts.module.scss";
+import { useEffect, useState, useMemo } from "react";
+import style from "./RadarChart.module.scss";
 import {
   Radar,
   RadarChart,

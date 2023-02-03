@@ -1,7 +1,7 @@
 import "./App.css";
 import Activity from "./components/Activity/Activity";
 import KeyData from "./components/KeyData/KeyData";
-import RadarCharts from "./components/RadarChart/RadarCharts";
+import RadarCharts from "./components/RadarChart/RadarChart";
 import proteinIcon from "./assets/icons/KeyDatas/protein.svg";
 import caloriesIcon from "./assets/icons/KeyDatas/calories.svg";
 import carbsIcon from "./assets/icons/KeyDatas/carbs.svg";
@@ -11,6 +11,7 @@ import style from "./App.module.scss";
 import { useEffect, useState, useMemo } from "react";
 import { getUserById } from "./api/User";
 import { user } from "./types/user.type";
+import LinearChart from "./components/LinearChart/LinearChart";
 function App() {
   const queryParameters = new URLSearchParams(window.location.search);
   const id = Number(queryParameters.get("id"));
@@ -22,6 +23,9 @@ function App() {
     }
     call();
   }, [id]);
+  const userFullName = useMemo(() => {
+    return `${user?.userInfos.firstName} ${user?.userInfos.lastName}`;
+  }, [user]);
   const keyDatas = useMemo(
     () => [
       {
@@ -107,13 +111,14 @@ function App() {
   return (
     <div className={style.App}>
       <h1>
-        Bonjour <span>Thomas</span>
+        Bonjour <span>{userFullName}</span>
       </h1>
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       <div className={style.Grid1}>
         <div className={style.chartsContainer}>
           <Activity activities={activities} />
-          <div>
+          <div className={style.Grid2}>
+            <LinearChart id={id} />
             <RadarCharts id={id} />
             <RadialChart user={user} />
           </div>
