@@ -42,8 +42,6 @@ function RadarCharts({ id }: Props) {
         <RadarChart
           cx="50%"
           cy="50%"
-          width={180}
-          height={180}
           outerRadius="60%"
           data={dataUser}
         >
@@ -58,7 +56,7 @@ function RadarCharts({ id }: Props) {
             tick={{
               fill: "#FFFFFF",
               fontFamily: "Roboto",
-              fontSize: "12px",
+              fontSize: "min(12px,0.75vw)",
               fontWeight: "500",
             }}
             tickLine={false}

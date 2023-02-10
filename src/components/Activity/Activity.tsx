@@ -37,7 +37,7 @@ function Activity({ activities }: { activities?: formattedActivity[]}) {
   return (
     <div className={style.Activity}>
       <h2>Activité quotidienne</h2>
-      <ResponsiveContainer width="100%" height={260}>
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart
           height={300}
           data={activities?.map((activity: any, index: number) => {
@@ -111,6 +111,10 @@ function Activity({ activities }: { activities?: formattedActivity[]}) {
 }
 
 Activity.propTypes = {
-  activities: PropTypes.arrayOf(PropTypes.object).isRequired,
+  activities: PropTypes.arrayOf(PropTypes.shape({
+    day: PropTypes.string,
+    kilogram: PropTypes.number,
+    calories: PropTypes.number,
+  })).isRequired,
 };
 export default Activity;

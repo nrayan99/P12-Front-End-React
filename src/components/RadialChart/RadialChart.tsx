@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import style from "./RadialChart.module.scss";
 import { Pie, PieChart, Cell, ResponsiveContainer } from "recharts";
-import { getUserById } from "../../api/User";
 import { user } from "../../types/user.type";
 
 type Props = {
@@ -13,6 +12,12 @@ type DataChart = {
   name: string;
   value: number;
 };
+/**
+ * 
+ * @description Component RadialChart permit to display a radial chart with the percentage of the user's score
+ * @param {user} user
+ * @returns 
+ */
 
 function RadialChart({ user }: Props) {
   const [dataUser, setDataUser] = useState<DataChart[]>([]);
@@ -30,8 +35,8 @@ function RadialChart({ user }: Props) {
   return (
     <div className={style.RadialChart}>
       <p className={style.score}>Score</p>
-      <ResponsiveContainer width="100%" height="100%">
-        <PieChart width={160} height={160} cx="50%" cy="50%" barGap={0}>
+      <ResponsiveContainer width="100%" height="100%" >
+        <PieChart cx="50%" cy="50%" barGap={0}>
           <Pie
             data={dataUser}
             dataKey="value"
