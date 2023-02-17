@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
+import useWindowSize from "../../hooks/useWindowSize";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -24,7 +25,6 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
   return null;
 };
-
 const formatterLegend = (value: string, entry: any, index: any) => {
   return (
     <span className={style.customizedLegend} style={{ color: "#74798C" }}>
@@ -33,18 +33,19 @@ const formatterLegend = (value: string, entry: any, index: any) => {
   );
 };
 
-function Activity({ activities }: { activities?: formattedActivity[]}) {
+function Activity({ activities }: { activities?: formattedActivity[] }) {
+const height = useWindowSize().height
+
   return (
     <div className={style.Activity}>
       <h2>Activité quotidienne</h2>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
-          height={300}
           data={activities?.map((activity: any, index: number) => {
             return { ...activity, day: index + 1 };
           })}
           margin={{
-            top: 60,
+            top: height ? height * 0.04 : 0,
             right: 0,
             left: 0,
             bottom: 0,
@@ -67,7 +68,7 @@ function Activity({ activities }: { activities?: formattedActivity[]}) {
             dataKey="calories"
             hide
             tickCount={3}
-          />
+/>
           <YAxis
             yAxisId="right"
             orientation="right"
@@ -111,10 +112,12 @@ function Activity({ activities }: { activities?: formattedActivity[]}) {
 }
 
 Activity.propTypes = {
-  activities: PropTypes.arrayOf(PropTypes.shape({
-    day: PropTypes.string,
-    kilogram: PropTypes.number,
-    calories: PropTypes.number,
-  })).isRequired,
+  activities: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number,
+    })
+  ).isRequired,
 };
 export default Activity;

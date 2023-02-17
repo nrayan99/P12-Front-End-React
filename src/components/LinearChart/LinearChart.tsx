@@ -105,7 +105,7 @@ function LinearChart({ id }: { id: number }) {
             x="8%"
             y="18%"
             fill="#FFFFFF"
-            style={{ fontSize: 15, fontWeight: 500, opacity: 0.5 }}
+            style={{ fontSize: '1vmax', fontWeight: 500, opacity: 0.5 }}
           >
             Durée moyenne des
           </text>
@@ -114,7 +114,7 @@ function LinearChart({ id }: { id: number }) {
             y="25%"
             fill="#FFFFFF"
             style={{
-              fontSize: 15,
+              fontSize: '1vmax',
               fontWeight: 500,
               opacity: 0.5,
             }}

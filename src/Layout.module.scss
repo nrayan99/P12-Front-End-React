@@ -1,12 +1,17 @@
 .content {
-  padding : 5%;
-  max-height: 100%;
+  padding-right: 5%;
+  padding-left: 7%;
+  padding-top: 6%;
+  padding-bottom: 8%;
+  max-height: calc(100vh - 90px);
 }
 .Layout {
   display: grid;
-  grid-template-columns: minmax(5%,117px) 1fr;
+  grid-template-columns: 117px 1fr;
   grid-template-rows: 90px 1fr;
   min-height: 100vh;
   max-height: 100vh;
   height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
 }

@@ -5,29 +5,34 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  padding: 32px 0 32px 32px;
   gap: 24px;
-
+  height: 20%;
+  aspect-ratio: 258/124;
   &_IconContainer {
-    width: 60px;
-    height: 60px;
+    margin-left: 12%;
+    height: 48%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 6px;
+    aspect-ratio: 1/1;
+    >img {
+      width: 31%;
+      aspect-ratio: 1;
+    }
   }
   &_TextContainer {
     > p:first-child {
-      font-size: 20px;
+      font-size: 1.3vw;
       font-weight: 700;
-      line-height: 24px;
+      line-height: 120%;
       color: #282d30;
       margin-bottom: 2px;
     }
     > p:nth-child(2) {
-      font-size: 14px;
+      font-size: 1vw;
       font-weight: 500;
-      line-height: 24px;
+      line-height: 120%;
       color: #74798c;
     }
   }
