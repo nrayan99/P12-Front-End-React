@@ -15,6 +15,12 @@ export type user = {
   };
 };
 
+export type formattedUserRadial = {
+  id: string;
+  name: string;
+  value: number;
+};
+
 export type userActivity = {
   userId: number;
   sessions: Array<{
@@ -24,12 +30,25 @@ export type userActivity = {
   }>;
 };
 
+export type formattedActivity = {
+  day: string;
+  kilogram: number;
+  calories: number;
+};
+
+
+
 export type userAverageSessions = {
   userId: number;
   sessions: Array<{
     day: number;
     sessionLength: number;
   }>;
+};
+
+export type formattedSessions = {
+  name: string,
+  uv: number,
 };
 
 export type userPerformance = {
@@ -41,14 +60,8 @@ export type userPerformance = {
   }>;
 };
 
-export type formattedActivity = {
-  day: string;
-  kilogram: number;
-  calories: number;
-};
-
 export type formattedPerformance = {
-  subject: string;
-  A: number;
-  fullMark: number;
+  subject: string
+  A: number
+  fullMark: number
 };

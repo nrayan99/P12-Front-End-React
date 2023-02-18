@@ -22,11 +22,6 @@ type dataCharts = {
 function RadarCharts({ id }: Props) {
   const [dataUser, setDataUser] = useState<dataCharts[]>([]);
 
-  const kind = useMemo(
-    () => ["Cardio", "Energie", "Endurance", "Force", "Vitesse", "Intensité"],
-    []
-  );
-
   useEffect(() => {
     async function call() {
       const data = await getUserPerformanceById(id);
@@ -34,7 +29,7 @@ function RadarCharts({ id }: Props) {
       setDataUser(dataUser);
     }
     call();
-  }, [id, kind]);
+  }, [id]);
 
   return (
     <div className={style.RadarCharts}>

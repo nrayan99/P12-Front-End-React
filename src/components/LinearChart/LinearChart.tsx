@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
   Rectangle,
 } from "recharts";
+import { formatSessions } from "../../formatters/AverageSessions";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -47,14 +48,8 @@ function LinearChart({ id }: { id: number }) {
     call();
   }, [id]);
   const data = useMemo(() => {
-    const daysArray = ["L", "M", "M", "J", "V", "S", "D"];
     if (averageSessions) {
-      return averageSessions.sessions.map((session, index) => {
-        return {
-          name: daysArray[index],
-          uv: session.sessionLength,
-        };
-      });
+      return formatSessions(averageSessions)
     }
   }, [averageSessions]);
 
