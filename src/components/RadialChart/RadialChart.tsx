@@ -3,6 +3,8 @@ import style from "./RadialChart.module.scss";
 import { Pie, PieChart, Cell, ResponsiveContainer } from "recharts";
 import { user, formattedUserRadial } from "../../types/user.type";
 import { formatRadialChart } from "../../formatters/User"
+import PropTypes from "prop-types";
+
 type Props = {
   user : user | undefined;
 };
@@ -11,7 +13,6 @@ type Props = {
  * 
  * @description Component RadialChart permit to display a radial chart with the percentage of the user's score
  * @param {user} user
- * @returns 
  */
 
 function RadialChart({ user }: Props) {
@@ -71,4 +72,10 @@ function RadialChart({ user }: Props) {
   );
 }
 
+RadialChart.propTypes = {
+  user: PropTypes.shape({
+    score: PropTypes.number,
+    todayScore: PropTypes.number,
+  }),
+};
 export default RadialChart;

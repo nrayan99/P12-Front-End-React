@@ -14,6 +14,10 @@ import { user, userActivity, formattedActivity } from "./types/user.type";
 import LinearChart from "./components/LinearChart/LinearChart";
 import { formatActivityForChart } from "./formatters/Activity";
 
+/**
+ * @description Function App permit to display the Home page of the app
+ * @returns {JSX.Element}
+ */
 function App() {
   const queryParameters = new URLSearchParams(window.location.search);
   const id = Number(queryParameters.get("id"));
@@ -27,7 +31,6 @@ function App() {
     }
     call();
   }, [id]);
-
 
   useEffect(() => {
     async function call() {

@@ -12,7 +12,11 @@ import {
   mockGetUserActivityById,
   mockGetUserPerformanceById,
 } from "../__mocks__/User";
-
+/**
+ * @description Function getUserById permit to get the user by id
+ * @param {number} id
+ * @returns {Promise<user>}
+ */
 export async function getUserById(id: number): Promise<user> {
   try {
     console.log(env.ENVIRONMENT);
@@ -27,6 +31,12 @@ export async function getUserById(id: number): Promise<user> {
   }
 }
 
+/**
+ * @description Function getUserActivityById permit to get the activity of the user by id
+ * @param {number} id
+ * @returns {Promise<userActivity>}
+ *
+ */
 export async function getUserActivityById(id: number): Promise<userActivity> {
   try {
     if (env.ENVIRONMENT === "production") {
@@ -40,6 +50,12 @@ export async function getUserActivityById(id: number): Promise<userActivity> {
   }
 }
 
+/**
+ * @description Function getUserAverageSessionsById permit to get the average sessions of the user by id
+ * @param {number} id
+ * @returns {Promise<userAverageSessions>}
+ *
+ */
 export async function getUserAverageSessionsById(
   id: number
 ): Promise<userAverageSessions> {
@@ -57,6 +73,12 @@ export async function getUserAverageSessionsById(
   }
 }
 
+/**
+ * @description Function getUserPerformanceById permit to get the performance of the user by id
+ * @param {number} id
+ * @returns {Promise<userPerformance>}
+ *
+ */
 export async function getUserPerformanceById(
   id: number
 ): Promise<userPerformance> {

@@ -1,6 +1,6 @@
 import style from "./Activity.module.scss";
 import { formattedActivity } from "../../types/user.type";
-import PropTypes from "prop-types"; // ES6
+import PropTypes from "prop-types";
 import {
   BarChart,
   Bar,
@@ -34,7 +34,7 @@ const formatterLegend = (value: string, entry: any, index: any) => {
 };
 
 function Activity({ activities }: { activities?: formattedActivity[] }) {
-const height = useWindowSize().height
+  const height = useWindowSize().height;
 
   return (
     <div className={style.Activity}>
@@ -68,7 +68,7 @@ const height = useWindowSize().height
             dataKey="calories"
             hide
             tickCount={3}
-/>
+          />
           <YAxis
             yAxisId="right"
             orientation="right"

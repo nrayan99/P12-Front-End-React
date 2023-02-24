@@ -1,6 +1,10 @@
 import { user, formattedUserRadial } from "../types/user.type";
 
-
+/**
+ * @description Function formatRadialChart permit to format the score of the user for the Radial chart and get only info on score
+ * @param {user} user
+ * @returns {formattedUserRadial[]}
+ */
 export const formatRadialChart = (
     user: user
 ): formattedUserRadial[] => {

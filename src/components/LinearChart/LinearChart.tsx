@@ -12,6 +12,7 @@ import {
   Rectangle,
 } from "recharts";
 import { formatSessions } from "../../formatters/AverageSessions";
+import PropTypes from "prop-types";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -121,5 +122,9 @@ function LinearChart({ id }: { id: number }) {
     </div>
   );
 }
+
+LinearChart.propTypes = {
+  id: PropTypes.number.isRequired,
+};
 
 export default LinearChart;

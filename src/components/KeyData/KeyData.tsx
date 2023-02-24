@@ -1,5 +1,5 @@
 import style from "./KeyData.module.scss";
-
+import PropTypes from "prop-types"; // ES6
 function KeyData({icon, type, value, backgroundColor} : {icon: string, type: string, value: string, backgroundColor: string}) {
   return (
     <div className={style.KeyData}>
@@ -16,4 +16,11 @@ function KeyData({icon, type, value, backgroundColor} : {icon: string, type: str
   );
 }
 
+
+KeyData.propTypes = {
+  icon: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string.isRequired,
+};
 export default KeyData;

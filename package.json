@@ -52,5 +52,8 @@
       "API_URL",
       "ENVIRONMENT"
     ]
+  },
+  "devDependencies": {
+    "better-docs": "^2.7.2"
   }
 }
