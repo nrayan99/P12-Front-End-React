@@ -14,11 +14,13 @@ const kind = [
  * @param {userPerformance} performance
  * @returns {formattedPerformance[]}
  *
- * */
-export const formatPerformanceForRadar = (
+ */
+const formatPerformanceForRadar = (
   performance: userPerformance
 ): formattedPerformance[] => {
   return performance.data.map((element, index) => {
     return { subject: kind[index], A: element.value, fullMark: 150 };
   });
 };
+
+export default formatPerformanceForRadar;

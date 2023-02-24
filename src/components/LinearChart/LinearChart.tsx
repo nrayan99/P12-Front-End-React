@@ -11,8 +11,16 @@ import {
   ResponsiveContainer,
   Rectangle,
 } from "recharts";
-import { formatSessions } from "../../formatters/AverageSessions";
+import formatSessions from "../../formatters/AverageSessions";
 import PropTypes from "prop-types";
+
+/**
+ * @description Component CustomTooltip permit to generate a custom tooltip for the linear Chart
+ * @param {Object} props - props
+ * @param {boolean} props.active - boolean to know if the tooltip is visible
+ * @param {Array} props.payload - Get the barchart data of the hovered element
+ * @returns {JSX.Element | null}
+ */
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -27,6 +35,12 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
   return null;
 };
+
+/**
+ * @description Component CustomCursor permit to show a darker background after the hovered element
+ * @param {Array} points - Array of coordinate of the tooltip
+ * @returns {React.Component}
+ */
 const CustomCursor = ({ points }: any) => {
   return (
     <Rectangle
@@ -38,6 +52,13 @@ const CustomCursor = ({ points }: any) => {
     />
   );
 };
+
+/**
+ * @description Component LinearChart permit to display a Linear Chart with the user's sessions data
+ * @param {number} id
+ * @returns {JSX.Element}
+ */
+
 function LinearChart({ id }: { id: number }) {
   const [averageSessions, setAverageSessions] = useState<userAverageSessions>();
 

@@ -2,7 +2,10 @@ import React from "react";
 import { useMemo } from "react";
 import style from "./Header.module.scss";
 import logo from "../../assets/images/logo-sportsee.svg";
-
+/**
+ * @description Component Header is the header of the website
+ * @returns {JSX.Element}
+ */
 function Header() {
   const nav = useMemo(() => [
     { name: "Accueil", link: "/" },

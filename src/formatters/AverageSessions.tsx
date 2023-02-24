@@ -7,8 +7,8 @@ const daysArray = ["L", "M", "M", "J", "V", "S", "D"];
  * @param {userAverageSessions} averageSessions
  * @returns {formattedSessions[]}
  *
- * */
-export const formatSessions = (
+ */
+const formatSessions = (
   averageSessions: userAverageSessions
 ): formattedSessions[] => {
   return averageSessions.sessions.map((session, index) => {
@@ -18,3 +18,5 @@ export const formatSessions = (
     };
   });
 };
+
+export default formatSessions;

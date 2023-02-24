@@ -13,6 +13,13 @@ import {
 } from "recharts";
 import useWindowSize from "../../hooks/useWindowSize";
 
+/**
+ * @description Component CustomTooltip permit to generate a custom tooltip for the barchart
+ * @param {Object} props - props of the component
+ * @param {boolean} props.active - boolean to know if the tooltip is visible
+ * @param {Array} props.payload - Get the barchart data of the hovered element
+ * @returns {JSX.Element | null}
+ */
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
@@ -25,6 +32,13 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
   return null;
 };
+
+/**
+ * @description Component formatterLegend permit to return a custom legend for the bar chart
+ * @param {number} index - index of the legend
+ * @returns {JSX.Element}
+ */
+
 const formatterLegend = (value: string, entry: any, index: any) => {
   return (
     <span className={style.customizedLegend} style={{ color: "#74798C" }}>
@@ -33,6 +47,11 @@ const formatterLegend = (value: string, entry: any, index: any) => {
   );
 };
 
+/**
+ * @description Component Activity permit to display a Barchart with kiogram and calories burnt per day
+ * @param {formattedActivity[]} activities - An array of kilogram and calories burnt per day
+ * @returns {JSX.Element}
+ */
 function Activity({ activities }: { activities?: formattedActivity[] }) {
   const height = useWindowSize().height;
 

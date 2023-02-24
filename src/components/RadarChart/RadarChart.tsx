@@ -9,7 +9,7 @@ import {
   Label,
 } from "recharts";
 import { getUserPerformanceById } from "../../api/User";
-import { formatPerformanceForRadar } from "../../formatters/Performance";
+import formatPerformanceForRadar from "../../formatters/Performance";
 import PropTypes from "prop-types";
 
 type Props = {
@@ -21,10 +21,11 @@ type dataCharts = {
   fullMark: number;
 };
 /**
- * 
- * @description Component RadarChart permit to display a radar chart with the percentage of the user's score 
- * @returns JSX.Element
+ * @description Component RadarChart permit to display a radar chart with the user's performance data
+ * @param {number} id
+ * @returns {JSX.Element}
  */
+
 function RadarCharts({ id }: Props) {
   const [dataUser, setDataUser] = useState<dataCharts[]>([]);
 

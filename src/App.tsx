@@ -12,7 +12,7 @@ import { useEffect, useState, useMemo } from "react";
 import { getUserById, getUserActivityById } from "./api/User";
 import { user, userActivity, formattedActivity } from "./types/user.type";
 import LinearChart from "./components/LinearChart/LinearChart";
-import { formatActivityForChart } from "./formatters/Activity";
+import  formatActivityForChart from "./formatters/Activity";
 
 /**
  * @description Function App permit to display the Home page of the app

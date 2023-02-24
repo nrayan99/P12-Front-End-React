@@ -5,8 +5,10 @@ import { userActivity, formattedActivity } from "../types/user.type";
  * @param {userActivity} activity
  * @returns {formattedActivity[]}
  */
-export const formatActivityForChart = (
+const formatActivityForChart = (
   activity: userActivity
 ): formattedActivity[] => {
   return activity.sessions;
 };
+
+export default formatActivityForChart;
