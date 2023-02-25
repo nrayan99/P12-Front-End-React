@@ -1,7 +1,5 @@
 import style from "./LinearChart.module.scss";
-import { useEffect, useMemo, useState } from "react";
-import { getUserAverageSessionsById } from "../../api/User";
-import { userAverageSessions } from "../../types/user.type";
+import { formattedSessions} from "../../types/user.type";
 import {
   LineChart,
   Line,
@@ -11,7 +9,6 @@ import {
   ResponsiveContainer,
   Rectangle,
 } from "recharts";
-import formatSessions from "../../formatters/AverageSessions";
 import PropTypes from "prop-types";
 
 /**
@@ -55,32 +52,19 @@ const CustomCursor = ({ points }: any) => {
 
 /**
  * @description Component LinearChart permit to display a Linear Chart with the user's sessions data
- * @param {number} id
+ * @param {userAverageSessions} averageSessions - An object with the user's average sessions data
  * @returns {JSX.Element}
  */
 
-function LinearChart({ id }: { id: number }) {
-  const [averageSessions, setAverageSessions] = useState<userAverageSessions>();
+function LinearChart({ averageSessions }: { averageSessions: formattedSessions[] | undefined}) {
 
-  useEffect(() => {
-    async function call() {
-      const sessions = await getUserAverageSessionsById(id);
-      setAverageSessions(sessions);
-    }
-    call();
-  }, [id]);
-  const data = useMemo(() => {
-    if (averageSessions) {
-      return formatSessions(averageSessions)
-    }
-  }, [averageSessions]);
 
   return (
     <div className={style.LinearChart}>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           width={500}
-          data={data}
+          data={averageSessions}
           margin={{
             top: 5,
             right: 30,
@@ -145,7 +129,10 @@ function LinearChart({ id }: { id: number }) {
 }
 
 LinearChart.propTypes = {
-  id: PropTypes.number.isRequired,
+  averageSessions : PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    uv: PropTypes.number,
+  }))
 };
 
 export default LinearChart;

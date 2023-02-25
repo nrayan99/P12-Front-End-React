@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import style from "./RadarChart.module.scss";
 import {
   Radar,
@@ -8,35 +7,20 @@ import {
   ResponsiveContainer,
   Label,
 } from "recharts";
-import { getUserPerformanceById } from "../../api/User";
-import formatPerformanceForRadar from "../../formatters/Performance";
 import PropTypes from "prop-types";
+import { formattedPerformance } from "../../types/user.type";
 
 type Props = {
-  id: number;
-};
-type dataCharts = {
-  subject: string;
-  A: number;
-  fullMark: number;
+  userPerformance: formattedPerformance[];
 };
 /**
  * @description Component RadarChart permit to display a radar chart with the user's performance data
- * @param {number} id
+ * @param {formattedPerformance} userPerformance - The user's performance data
  * @returns {JSX.Element}
  */
 
-function RadarCharts({ id }: Props) {
-  const [dataUser, setDataUser] = useState<dataCharts[]>([]);
+function RadarCharts({ userPerformance }: Props) {
 
-  useEffect(() => {
-    async function call() {
-      const data = await getUserPerformanceById(id);
-      const dataUser = formatPerformanceForRadar(data);
-      setDataUser(dataUser);
-    }
-    call();
-  }, [id]);
 
   return (
     <div className={style.RadarCharts}>
@@ -45,7 +29,7 @@ function RadarCharts({ id }: Props) {
           cx="50%"
           cy="50%"
           outerRadius="60%"
-          data={dataUser}
+          data={userPerformance}
         >
           <PolarGrid
             gridType="polygon"
@@ -78,7 +62,13 @@ function RadarCharts({ id }: Props) {
 }
 
 RadarCharts.propTypes = {
-  id: PropTypes.number.isRequired,
+  userPerformance: PropTypes.arrayOf(
+    PropTypes.shape({
+      subject: PropTypes.string.isRequired,
+      A: PropTypes.number.isRequired,
+      fullMark: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default RadarCharts;
