@@ -9,13 +9,24 @@ import fatIcon from "./assets/icons/KeyDatas/fat.svg";
 import RadialChart from "./components/RadialChart/RadialChart";
 import style from "./App.module.scss";
 import { useEffect, useState, useMemo } from "react";
-import { getUserById, getUserActivityById, getUserAverageSessionsById, getUserPerformanceById  } from "./api/User";
-import { user, userActivity, formattedActivity, formattedSessions, formattedPerformance } from "./types/user.type";
+import {
+  getUserById,
+  getUserActivityById,
+  getUserAverageSessionsById,
+  getUserPerformanceById,
+} from "./api/User";
+import {
+  user,
+  userActivity,
+  formattedActivity,
+  formattedSessions,
+  formattedPerformance,
+} from "./types/user.type";
 import formatSessions from "./formatters/AverageSessions";
 import formatPerformanceForRadar from "./formatters/Performance";
 
 import LinearChart from "./components/LinearChart/LinearChart";
-import  formatActivityForChart from "./formatters/Activity";
+import formatActivityForChart from "./formatters/Activity";
 /**
  * @description Function App permit to display the Home page of the app
  * @returns {JSX.Element}
@@ -25,8 +36,12 @@ function App() {
   const id = Number(queryParameters.get("id"));
   const [user, setUser] = useState<user>();
   const [userActivity, setUserActivity] = useState<userActivity>();
-  const [averageSessions, setAverageSessions] = useState<formattedSessions[] | undefined>();
-  const [userPerformance, setUserPerformance] = useState<formattedPerformance[]>([]);
+  const [averageSessions, setAverageSessions] = useState<
+    formattedSessions[] | undefined
+  >();
+  const [userPerformance, setUserPerformance] = useState<
+    formattedPerformance[]
+  >([]);
 
   useEffect(() => {
     async function call() {
@@ -56,7 +71,7 @@ function App() {
   useEffect(() => {
     async function call() {
       const data = await getUserAverageSessionsById(id);
-      const sessions = formatSessions(data)
+      const sessions = formatSessions(data);
       setAverageSessions(sessions);
     }
     call();
@@ -119,6 +134,7 @@ function App() {
             <div className={style.keyDatasContainer}>
               {keyDatas.map((keyData) => (
                 <KeyData
+                  key={keyData.type}
                   icon={keyData.icon}
                   value={keyData.value}
                   type={keyData.type}
