@@ -50,6 +50,7 @@ function App() {
       setUserPerformance(dataUser);
     }
     call();
+    console.log(id)
   }, [id]);
 
   useEffect(() => {
@@ -58,6 +59,7 @@ function App() {
       setUser(user);
     }
     call();
+    console.log('1')
   }, [id]);
 
   useEffect(() => {
@@ -66,6 +68,8 @@ function App() {
       setUserActivity(userActivity);
     }
     call();
+    console.log('2')
+
   }, [id]);
 
   useEffect(() => {
@@ -74,6 +78,7 @@ function App() {
       const sessions = formatSessions(data);
       setAverageSessions(sessions);
     }
+    console.log('3')
     call();
   }, [id]);
 
