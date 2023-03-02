@@ -1,10 +1,10 @@
 # Getting Started with Project 12
 
 ## Pre-requisite
-Node : >v.18.13.0
-Npm : > 8.19.3
-React: > 18.2.0
-React Router : > 6.6.1
+- Node : >v.18.13.0
+- Npm : > 8.19.3
+- React: > 18.2.0
+- React Router : > 6.6.1
 
 ## 1. Create a directory for the project
 
